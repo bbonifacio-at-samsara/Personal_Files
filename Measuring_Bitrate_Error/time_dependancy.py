@@ -7,16 +7,16 @@ import seaborn as sns
 from tqdm import tqdm
 import re
 
+acceptedError = 15
+source = "local/"
 # List of seconds to process
 seconds_list = ["01", "02", "03", "05", "10", "20", "30"]
-
-# DataFrame to hold the results
 results = []
 
 for seconds in tqdm(seconds_list, desc="Processing Data"):
 
     # Read the CSV file
-    csv_file = "Measuring_Bitrate_Error/Data/" + seconds + "_second.csv"
+    csv_file = "Measuring_Bitrate_Error/Data/" + source + seconds + "_second.csv"
     with open(csv_file, 'r') as file:
         data = file.read()
 
@@ -62,7 +62,7 @@ plt.ylabel('Mean Bitrate Deviation Percent')
 plt.grid(True)
 
 # Save the plot
-storage = "Measuring_Bitrate_Error/Plots/Overall/"
+storage = "Measuring_Bitrate_Error/Plots/" + source + "Overall/"
 if not os.path.exists(storage):
     os.makedirs(storage)
 plt.savefig(storage + 'mean_bitrate_deviation_over_time.png')

@@ -9,13 +9,16 @@ from tqdm import tqdm
 import re
 
 acceptedError = 15
+source = "local/"
+# List of seconds to process
+seconds_list = ["01", "02", "03", "05", "10", "20", "30"]
+seconds_list = [source + i for i in seconds_list]
 
 # Define the function to fit
 def fit_function(time, a, b):
     return a / np.sqrt(time) + b
 
-# List of seconds to process
-seconds_list = ["01", "02", "03", "05", "10", "20", "30"]
+
 
 # DataFrame to hold the results
 results = []

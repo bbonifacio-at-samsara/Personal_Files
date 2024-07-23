@@ -7,14 +7,13 @@ import seaborn as sns
 from tqdm import tqdm
 import re
 
-# Define the accepted error
-acceptedError = 15
-
-# List of seconds to process
-seconds_list = ["01", "02", "03", "05", "10", "20", "30"]
-
 # DataFrame to hold the results
 results = []
+acceptedError = 15
+source = "local/"
+# List of seconds to process
+seconds_list = ["01", "02", "03", "05", "10", "20", "30"]
+seconds_list = [source + i for i in seconds_list]
 
 for seconds in tqdm(seconds_list, desc="Processing Data"):
 
