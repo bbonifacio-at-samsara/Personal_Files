@@ -8,7 +8,7 @@ import seaborn as sns
 from tqdm import tqdm
 
 acceptedError = 15
-source = "local/"
+source = "local_raw/"
 # List of seconds to process
 seconds_list = ["01", "02", "03", "05", "10", "20", "30"]
 seconds_list = [source + i for i in seconds_list]
